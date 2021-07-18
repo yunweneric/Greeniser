@@ -43,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kscaffoldBgColor,
+      backgroundColor: kscaffoldBgColor2,
       body: Container(
         height: screenHeight(context),
         width: screenWidth(context),
@@ -74,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
               left: 0,
               child: Container(
                 decoration: BoxDecoration(
-                  color: kscaffoldBgColor,
+                  color: kscaffoldBgColor2,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(50),
                       topRight: Radius.circular(50.0)),
@@ -120,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     color: Colors.grey,
                                   ),
                                 ),
-                                fillColor: Colors.white,
+                                fillColor: kscaffoldBgColor,
                                 filled: true,
                                 // contentPadding: EdgeInsets.all(20.0),
                                 labelStyle: TextStyle(fontSize: 12.0),
@@ -170,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     color: Colors.grey,
                                   ),
                                 ),
-                                fillColor: Colors.white,
+                                fillColor: kscaffoldBgColor,
                                 filled: true,
                                 // contentPadding: EdgeInsets.all(20.0),
                                 labelStyle: TextStyle(fontSize: 13.0),

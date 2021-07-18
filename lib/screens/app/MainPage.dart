@@ -4,6 +4,7 @@ import 'package:greeniser/screens/app/Addrink.dart';
 import 'package:greeniser/screens/app/EventsPage.dart';
 import 'package:greeniser/screens/app/HomePage.dart';
 import 'package:greeniser/screens/app/ProfilePage.dart';
+import 'package:greeniser/screens/auth/login.dart';
 import 'package:greeniser/utilities/constants.dart';
 
 class MainPage extends StatefulWidget {
@@ -44,7 +45,8 @@ class _MainPageState extends State<MainPage> {
     HomePage(),
     AddDrink(),
     EventPage(),
-    ProfilePage()
+    LoginScreen()
+    // ProfilePage()
   ];
 
   void _onItemTapped(int index) {

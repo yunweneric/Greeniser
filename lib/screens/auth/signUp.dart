@@ -18,7 +18,7 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kscaffoldBgColor,
+      backgroundColor: kscaffoldBgColor2,
       body: Container(
         height: screenHeight(context),
         width: screenWidth(context),
@@ -49,7 +49,7 @@ class _SignUpState extends State<SignUp> {
               left: 0,
               child: Container(
                 decoration: BoxDecoration(
-                  color: kscaffoldBgColor,
+                  color: kscaffoldBgColor2,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(50),
                       topRight: Radius.circular(50.0)),
@@ -95,7 +95,7 @@ class _SignUpState extends State<SignUp> {
                                     color: Colors.grey,
                                   ),
                                 ),
-                                fillColor: Colors.white,
+                                fillColor: kscaffoldBgColor,
                                 filled: true,
                                 // contentPadding: EdgeInsets.all(20.0),
                                 labelStyle: TextStyle(fontSize: 12.0),
@@ -145,7 +145,7 @@ class _SignUpState extends State<SignUp> {
                                     color: Colors.grey,
                                   ),
                                 ),
-                                fillColor: Colors.white,
+                                fillColor: kscaffoldBgColor,
                                 filled: true,
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(12.0),
@@ -192,7 +192,7 @@ class _SignUpState extends State<SignUp> {
                                     color: Colors.grey,
                                   ),
                                 ),
-                                fillColor: Colors.white,
+                                fillColor: kscaffoldBgColor,
                                 filled: true,
                                 // contentPadding: EdgeInsets.all(20.0),
                                 labelStyle: TextStyle(fontSize: 13.0),
