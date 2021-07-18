@@ -10,6 +10,29 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Container());
+    return Scaffold(
+        body: Center(
+      child: Container(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 20.0,
+            vertical: 30,
+          ),
+          child: Card(
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20.0,
+                    vertical: 30,
+                  ),
+                  child: Text("No Account Setup yet"),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    ));
   }
 }
