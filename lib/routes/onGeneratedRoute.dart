@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:greeniser/screens/OnBoarding/OnBoadingPage.dart';
 import 'package:greeniser/screens/app/HomePage.dart';
 import 'package:greeniser/screens/app/MainPage.dart';
+import 'package:greeniser/screens/app/TodayPage.dart';
 import 'package:greeniser/screens/auth/login.dart';
 import 'package:greeniser/screens/auth/signUp.dart';
 
@@ -16,6 +17,9 @@ class Routegenerator {
 
       case (AppRoutes.onBoardingPage):
         return MaterialPageRoute(builder: (context) => OnBoardingPage());
+
+      case (AppRoutes.today):
+        return MaterialPageRoute(builder: (context) => TodayPage());
 
       case (AppRoutes.createAccount):
         return MaterialPageRoute(builder: (context) => SignUp());

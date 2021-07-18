@@ -6,4 +6,5 @@ class AppRoutes {
   static const String profile = "/Profile";
   static const String onBoardingPage = "/onBoardingPage";
   static const String homeScreen = "/homeScreen";
+  static const String today = "/today";
 }

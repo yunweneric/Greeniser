@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:greeniser/routes/AppRoutes.dart';
 import 'package:greeniser/screens/app/Addrink.dart';
-import 'package:greeniser/screens/app/CategoryPage.dart';
+import 'package:greeniser/screens/app/EventsPage.dart';
 import 'package:greeniser/screens/app/HomePage.dart';
 import 'package:greeniser/screens/app/ProfilePage.dart';
 import 'package:greeniser/utilities/constants.dart';
@@ -42,7 +43,7 @@ class _MainPageState extends State<MainPage> {
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
     AddDrink(),
-    CategoryPage(),
+    EventPage(),
     ProfilePage()
   ];
 
@@ -61,6 +62,7 @@ class _MainPageState extends State<MainPage> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: kscaffoldBgColor2,
         selectedItemColor: kprimaryColor,
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
@@ -69,12 +71,12 @@ class _MainPageState extends State<MainPage> {
             title: Text('Home'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.wine_bar),
-            title: Text('Drinks'),
+            icon: Icon(Icons.light_mode),
+            title: Text('Tips'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.credit_card),
-            title: Text('Sales'),
+            icon: Icon(Icons.event),
+            title: Text('Events'),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),
@@ -94,13 +96,15 @@ class _MainPageState extends State<MainPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(
-                      Icons.search_rounded,
+                      Icons.bubble_chart,
                       size: 28.0,
                     )
                   ],
                 ),
               ),
-              onPressed: () async {},
+              onPressed: () async {
+                Navigator.pushNamed(context, AppRoutes.today);
+              },
             )
           : null,
       floatingActionButtonLocation:

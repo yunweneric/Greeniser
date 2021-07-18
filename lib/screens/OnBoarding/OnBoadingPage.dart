@@ -17,7 +17,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   void _onIntroEnd(context) {
     Navigator.pushNamedAndRemoveUntil(
-        context, AppRoutes.homeScreen, (route) => false);
+        context, AppRoutes.mainPage, (route) => false);
   }
 
   Widget _buildFullscrenImage() {
@@ -117,7 +117,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             width: screenWidth(context) / 2,
             child: ElevatedButton(
               onPressed: () {
-                introKey.currentState?.animateScroll(0);
+                _onIntroEnd(context);
               },
               child: const Text(
                 'Start',
