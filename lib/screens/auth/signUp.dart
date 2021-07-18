@@ -30,7 +30,7 @@ class _SignUpState extends State<SignUp> {
               decoration: BoxDecoration(
                 color: kprimaryColor,
                 image: DecorationImage(
-                  image: AssetImage('assets/images/drink3.jpg'),
+                  image: AssetImage('assets/images/climate3.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -263,14 +263,27 @@ class _SignUpState extends State<SignUp> {
               // left: 0,
               // right: 0,
               child: Container(
-                child: Text(
-                  "Eva's Bar\nManager",
-                  style: GoogleFonts.lato(
-                    fontSize: 50,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  textAlign: TextAlign.center,
+                child: Column(
+                  children: [
+                    Text(
+                      "Greeniser",
+                      style: GoogleFonts.lato(
+                        fontSize: 50,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      "Let's save the planet, lets's save earth",
+                      style: GoogleFonts.lato(
+                        fontSize: 15,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
                 ),
               ),
             ),

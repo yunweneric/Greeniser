@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
               decoration: BoxDecoration(
                 color: kprimaryColor,
                 image: DecorationImage(
-                  image: AssetImage('assets/images/drink6.jpg'),
+                  image: AssetImage('assets/images/climate2.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -238,14 +238,27 @@ class _LoginScreenState extends State<LoginScreen> {
               // left: 0,
               // right: 0,
               child: Container(
-                child: Text(
-                  "Eva's Bar\nManager",
-                  style: GoogleFonts.lato(
-                    fontSize: 50,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  textAlign: TextAlign.center,
+                child: Column(
+                  children: [
+                    Text(
+                      "Greeniser",
+                      style: GoogleFonts.lato(
+                        fontSize: 50,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      "Let's save the planet, lets's save earth",
+                      style: GoogleFonts.lato(
+                        fontSize: 15,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
                 ),
               ),
             ),

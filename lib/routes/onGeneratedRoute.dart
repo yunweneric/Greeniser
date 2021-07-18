@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:greeniser/screens/HomePage.dart';
-import 'package:greeniser/screens/MainPage.dart';
+import 'package:greeniser/screens/OnBoarding/OnBoadingPage.dart';
+import 'package:greeniser/screens/app/HomePage.dart';
+import 'package:greeniser/screens/app/MainPage.dart';
 import 'package:greeniser/screens/auth/login.dart';
 import 'package:greeniser/screens/auth/signUp.dart';
 
@@ -12,6 +13,9 @@ class Routegenerator {
     switch (settings.name) {
       case (AppRoutes.loginScreen):
         return MaterialPageRoute(builder: (context) => LoginScreen());
+
+      case (AppRoutes.onBoardingPage):
+        return MaterialPageRoute(builder: (context) => OnBoardingPage());
 
       case (AppRoutes.createAccount):
         return MaterialPageRoute(builder: (context) => SignUp());

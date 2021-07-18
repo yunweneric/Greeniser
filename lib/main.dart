@@ -12,8 +12,11 @@ import 'package:greeniser/utilities/constants.dart';
 //         builder: (context) => MyApp(), // Wrap your app
 //       ),
 //     );
-
-void main() {
+String? token;
+String? initApp;
+void main() async {
+  token = "";
+  initApp = "";
   runApp(MyApp());
 }
 
@@ -30,11 +33,15 @@ class MyApp extends StatelessWidget {
     );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Greeniser',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.teal,
       ),
-      initialRoute: AppRoutes.loginScreen,
+      initialRoute: initApp == "1"
+          ? AppRoutes.onBoardingPage
+          : token == null
+              ? AppRoutes.loginScreen
+              : AppRoutes.homeScreen,
       onGenerateRoute: (settings) =>
           Routegenerator.generatedRoutes(settings, context),
     );
