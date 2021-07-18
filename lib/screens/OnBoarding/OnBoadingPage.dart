@@ -1,7 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:greeniser/routes/AppRoutes.dart';
 import 'package:greeniser/screens/app/HomePage.dart';
+import 'package:greeniser/utilities/constants.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 class OnBoardingPage extends StatefulWidget {
@@ -13,14 +16,13 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
   void _onIntroEnd(context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => HomePage()),
-    );
+    Navigator.pushNamedAndRemoveUntil(
+        context, AppRoutes.homeScreen, (route) => false);
   }
 
   Widget _buildFullscrenImage() {
     return Image.asset(
-      'assets/fullscreen.jpg',
+      'assets/images/climate1.jpg',
       fit: BoxFit.cover,
       height: double.infinity,
       width: double.infinity,
@@ -28,19 +30,33 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     );
   }
 
-  Widget _buildImage(String assetName, [double width = 350]) {
-    return Image.asset('assets/$assetName', width: width);
+  Widget _buildImage(String assetName, [double width = 300]) {
+    // return Image.asset('assets/images/$assetName', width: width);
+    return SvgPicture.asset("assets/svgs/$assetName", width: width);
+  }
+
+  Widget _buildImage2(String assetName, [double width = 200]) {
+    // return Image.asset('assets/images/$assetName', width: width);
+    return SvgPicture.asset("assets/svgs/$assetName", width: width);
   }
 
   @override
   Widget build(BuildContext context) {
-    const bodyStyle = TextStyle(fontSize: 19.0);
+    const bodyStyle = TextStyle(
+      fontSize: 16.0,
+      fontFamily: 'lato',
+      height: 1.5,
+    );
 
     const pageDecoration = const PageDecoration(
-      titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
+      titleTextStyle: TextStyle(
+        fontSize: 28.0,
+        fontWeight: FontWeight.w700,
+        color: kprimaryColor,
+      ),
       bodyTextStyle: bodyStyle,
       descriptionPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
-      pageColor: Colors.white,
+      pageColor: Colors.transparent,
       imagePadding: EdgeInsets.zero,
     );
 
@@ -52,98 +68,75 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.only(top: 16, right: 16),
-            child: _buildImage('flutter.png', 100),
+            // child: _buildImage('windturbin.svg', 100),
           ),
         ),
       ),
-      globalFooter: SizedBox(
-        width: double.infinity,
-        height: 60,
-        child: ElevatedButton(
-          child: const Text(
-            'Let\s go right away!',
-            style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
-          ),
-          onPressed: () => _onIntroEnd(context),
-        ),
-      ),
+
       pages: [
         PageViewModel(
-          title: "Fractional shares",
+          title: "Hi! Friend",
           body:
-              "Instead of having to buy an entire share, invest any amount you want.",
-          image: _buildImage('img1.jpg'),
+              "I am Greeniser! \nI will be teaching you several things these days and I will help you become Ecofriendly, and aiding you save energy at home ",
+          image: _buildImage2('undraw_female_avatar_w3jk.svg'),
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: "Learn as you go",
+          title: "Manage waste properly",
           body:
-              "Download the Stockpile app and master the market with our mini-lesson.",
+              "Proper waste management in an environmental friendly manner, preventing uncesssasary wastage",
+          image: _buildImage2('undraw_Throw_away_re_x60k.svg'),
+          decoration: pageDecoration,
+        ),
+        PageViewModel(
+          title: "Learn to Conserve Energy",
+          body:
+              "Recieve tips on how to conserve energy in your home. Get ideas on how to save the environment from detrimental activities caused by indutries around us",
+          image: _buildImage('windturbin.svg'),
+          decoration: pageDecoration,
+        ),
+        PageViewModel(
+          title: "Promote your Advocacy",
+          body:
+              "Are you and environnebtal advocate? \nI will help you create awareness of your campeigns",
+          image: _buildImage('undraw_Push_notifications_re_t84m (1).svg'),
+          decoration: pageDecoration,
+        ),
+        PageViewModel(
+          title: "Join the team",
+          body:
+              "Join a team of passionate and devoted environmentalists and get engaged as an advocates",
+          image: _buildImage('undraw_team_spirit_hrr4.svg'),
+          decoration: pageDecoration,
+        ),
+        PageViewModel(
+          title: "Get started",
+          body: "Alright, no more waiting! \nLet's get started now",
           image: _buildImage('img2.jpg'),
-          decoration: pageDecoration,
-        ),
-        PageViewModel(
-          title: "Kids and teens",
-          body:
-              "Kids and teens can track their stocks 24/7 and place trades that you approve.",
-          image: _buildImage('img3.jpg'),
-          decoration: pageDecoration,
-        ),
-        PageViewModel(
-          title: "Full Screen Page",
-          body:
-              "Pages can be full screen as well.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id euismod lectus, non tempor felis. Nam rutrum rhoncus est ac venenatis.",
-          image: _buildFullscrenImage(),
-          decoration: pageDecoration.copyWith(
-            contentMargin: const EdgeInsets.symmetric(horizontal: 16),
-            fullScreen: true,
-            bodyFlex: 2,
-            imageFlex: 3,
-          ),
-        ),
-        PageViewModel(
-          title: "Another title page",
-          body: "Another beautiful body text for this example onboarding",
-          image: _buildImage('img2.jpg'),
-          footer: ElevatedButton(
-            onPressed: () {
-              introKey.currentState?.animateScroll(0);
-            },
-            child: const Text(
-              'FooButton',
-              style: TextStyle(color: Colors.white),
-            ),
-            style: ElevatedButton.styleFrom(
-              primary: Colors.lightBlue,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0),
+          footer: Container(
+            width: screenWidth(context) / 2,
+            child: ElevatedButton(
+              onPressed: () {
+                introKey.currentState?.animateScroll(0);
+              },
+              child: const Text(
+                'Start',
+                style: TextStyle(color: Colors.white),
+              ),
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(vertical: 15.0),
+                primary: kprimaryColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
               ),
             ),
           ),
           decoration: pageDecoration,
         ),
-        PageViewModel(
-          title: "Title of last page - reversed",
-          bodyWidget: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text("Click on ", style: bodyStyle),
-              Icon(Icons.edit),
-              Text(" to edit a post", style: bodyStyle),
-            ],
-          ),
-          decoration: pageDecoration.copyWith(
-            bodyFlex: 2,
-            imageFlex: 4,
-            bodyAlignment: Alignment.bottomCenter,
-            imageAlignment: Alignment.topCenter,
-          ),
-          image: _buildImage('img1.jpg'),
-          reverse: true,
-        ),
       ],
       onDone: () => _onIntroEnd(context),
-      //onSkip: () => _onIntroEnd(context), // You can override onSkip callback
+      onSkip: () => _onIntroEnd(context), // You can override onSkip callback
       showSkipButton: true,
       skipFlex: 0,
       nextFlex: 0,
@@ -157,15 +150,18 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           ? const EdgeInsets.all(12.0)
           : const EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
       dotsDecorator: const DotsDecorator(
+        activeColor: kprimaryColor,
         size: Size(10.0, 10.0),
         color: Color(0xFFBDBDBD),
         activeSize: Size(22.0, 10.0),
         activeShape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(25.0)),
+          borderRadius: BorderRadius.all(
+            Radius.circular(25.0),
+          ),
         ),
       ),
       dotsContainerDecorator: const ShapeDecoration(
-        color: Colors.black87,
+        color: Colors.transparent,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(8.0)),
         ),

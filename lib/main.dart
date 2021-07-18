@@ -15,7 +15,7 @@ import 'package:greeniser/utilities/constants.dart';
 String? token;
 String? initApp;
 void main() async {
-  token = "";
+  token = null;
   initApp = "";
   runApp(MyApp());
 }
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
         statusBarIconBrightness: Brightness.dark,
-        systemNavigationBarColor: kscaffoldBgColor,
+        systemNavigationBarColor: Colors.transparent,
         systemNavigationBarIconBrightness: Brightness.dark,
       ),
     );
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
-      initialRoute: initApp == "1"
+      initialRoute: initApp != "1"
           ? AppRoutes.onBoardingPage
           : token == null
               ? AppRoutes.loginScreen

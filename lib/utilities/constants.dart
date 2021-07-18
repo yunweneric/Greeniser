@@ -10,6 +10,7 @@ const Color kprimaryColor = Color(0xFF117760);
 const Color kbluecover = Color(0x77117760);
 const Color kbluecover2 = Color(0x33117760);
 const Color kscaffoldBgColor = Color(0xFFf7f7f7);
+const Color kscaffoldBgColor2 = Color(0xFFFFFFFF);
 const Color ktextGrey = Color(0xFF323232);
 const Color kOrange = Color(0xFFF79623);
 const Color kactiveTextColor = Color(0xff3AB19B);

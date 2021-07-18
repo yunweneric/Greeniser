@@ -62,7 +62,8 @@ class _HomePageState extends State<HomePage> {
                       CircleAvatar(
                         radius: 30,
                         backgroundColor: kprimaryColor,
-                        backgroundImage: AssetImage("assets/images/drink3.jpg"),
+                        backgroundImage:
+                            AssetImage("assets/images/climate3.jpg"),
 
                         // CachedNetworkImage(
                         //   imageUrl: "assets/images/drink3.jpg",
