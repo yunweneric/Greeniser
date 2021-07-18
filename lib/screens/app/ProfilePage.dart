@@ -28,6 +28,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   child: Text("No Account Setup yet"),
                 ),
+                Icon(Icons.login)
               ],
             ),
           ),
