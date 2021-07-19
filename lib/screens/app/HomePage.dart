@@ -21,14 +21,21 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             Stack(
-              overflow: Overflow.visible,
               children: [
-                CustomPaint(
-                  size: Size(
-                      screenWidth(context),
-                      (screenWidth(context) * 1)
-                          .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                  painter: RPSCustomPainter(),
+                TweenAnimationBuilder(
+                  tween: Tween<double>(
+                      begin: screenHeight(context) / 4,
+                      end: screenHeight(context) / 2),
+                  duration: Duration(milliseconds: 10),
+                  builder: (BuildContext context, double val, child) {
+                    return CustomPaint(
+                      size: Size(
+                        val,
+                        (screenWidth(context) * 0.9).toDouble(),
+                      ),
+                      painter: RPSCustomPainter(),
+                    );
+                  },
                 ),
                 Positioned(
                   top: 0,
@@ -41,18 +48,7 @@ class _HomePageState extends State<HomePage> {
                     duration: Duration(milliseconds: 500),
                     builder: (BuildContext context, double val, child) {
                       return Container(
-                        height: 250,
-                        // decoration: BoxDecoration(
-                        //   gradient: LinearGradient(
-                        //       begin: Alignment.topRight,
-                        //       end: Alignment.bottomLeft,
-                        //       colors: [Color(0XFF1A936A), Color(0xff025962)]),
-                        //   borderRadius: BorderRadius.only(
-                        //     bottomLeft: Radius.circular(20),
-                        //     bottomRight: Radius.circular(20),
-                        //   ),
-                        //   // color: kbluecover2,
-                        // ),
+                        // height: val,
                         child: SafeArea(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -114,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                                 tween: Tween<double>(begin: 0, end: 1),
-                                duration: Duration(seconds: 1),
+                                duration: Duration(milliseconds: 700),
                                 builder: (context, double val, child) {
                                   return Opacity(
                                     opacity: val,
@@ -138,6 +134,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Column(
                 children: [
+                  minorSpacer(context),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -152,13 +149,23 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                      Text(
-                        "See all",
-                        style: GoogleFonts.lato(
-                          textStyle: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black,
+                      Container(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 5,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.teal[100],
+                        ),
+                        child: Text(
+                          "See all",
+                          style: GoogleFonts.lato(
+                            textStyle: TextStyle(
+                              fontSize: 13.0,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black,
+                            ),
                           ),
                         ),
                       ),
