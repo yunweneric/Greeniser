@@ -21,80 +21,101 @@ class _HomePageState extends State<HomePage> {
           children: [
             ClipPath(
               clipper: CurveClipper(),
-              child: Container(
-                height: screenHeight(context) / 2,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                      colors: [Color(0XFF1A936A), Color(0xff025962)]),
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20),
-                  ),
-                  // color: kbluecover2,
-                ),
-                child: SafeArea(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 20.0,
-                          vertical: 10,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            CircleAvatar(
-                              radius: 20,
-                              backgroundColor: kprimaryColor,
-                              backgroundImage: AssetImage(
-                                "assets/images/climate3.jpg",
-                              ),
+              child: TweenAnimationBuilder(
+                tween: Tween<double>(
+                    begin: screenHeight(context) / 4,
+                    end: screenHeight(context) / 2),
+                duration: Duration(milliseconds: 500),
+                builder: (BuildContext context, double val, child) {
+                  return Container(
+                    height: val,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topRight,
+                          end: Alignment.bottomLeft,
+                          colors: [Color(0XFF1A936A), Color(0xff025962)]),
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(20),
+                        bottomRight: Radius.circular(20),
+                      ),
+                      // color: kbluecover2,
+                    ),
+                    child: SafeArea(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0,
+                              vertical: 10,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                CircleAvatar(
+                                  radius: 20,
+                                  backgroundColor: kprimaryColor,
+                                  backgroundImage: AssetImage(
+                                    "assets/images/climate3.jpg",
+                                  ),
 
-                              // CachedNetworkImage(
-                              //   imageUrl: "assets/images/drink3.jpg",
-                              // ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 30.0,
-                          vertical: 10,
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Hi Friend!',
-                              style: GoogleFonts.lato(
-                                fontSize: 30.0,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.white,
+                                  // CachedNetworkImage(
+                                  //   imageUrl: "assets/images/drink3.jpg",
+                                  // ),
+                                )
+                              ],
+                            ),
+                          ),
+                          TweenAnimationBuilder(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 30.0,
+                                vertical: 10,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Hi Friend!',
+                                    style: GoogleFonts.lato(
+                                      fontSize: 30.0,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    "Let's explore the green world together today!",
+                                    style: GoogleFonts.lato(
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white,
+                                      height: 1.5,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "Let's explore the green world together today!",
-                              style: GoogleFonts.lato(
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white,
-                                height: 1.5,
-                              ),
-                            ),
-                          ],
-                        ),
+                            tween: Tween<double>(begin: 0, end: 1),
+                            duration: Duration(seconds: 1),
+                            builder: (context, double val, child) {
+                              return Opacity(
+                                opacity: val,
+                                child: Padding(
+                                  padding: EdgeInsets.only(top: val * 20),
+                                  child: child,
+                                ),
+                              );
+                            },
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
+                    ),
+                  );
+                },
               ),
             ),
             Padding(

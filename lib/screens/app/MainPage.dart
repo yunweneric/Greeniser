@@ -45,8 +45,8 @@ class _MainPageState extends State<MainPage> {
     HomePage(),
     AddDrink(),
     EventPage(),
-    // LoginScreen()
-    ProfilePage()
+    LoginScreen()
+    // ProfilePage()
   ];
 
   void _onItemTapped(int index) {

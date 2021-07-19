@@ -30,12 +30,21 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     );
   }
 
-  Widget _buildImage(String assetName, [double width = 300]) {
+  Widget _buildImage2(String assetName, [double width = 200]) {
     // return Image.asset('assets/images/$assetName', width: width);
-    return SvgPicture.asset("assets/svgs/$assetName", width: width);
+    return TweenAnimationBuilder(
+      duration: Duration(seconds: 2),
+      tween: Tween<double>(begin: 0, end: 1),
+      builder: (BuildContext context, double val, child) {
+        return Opacity(
+          opacity: val,
+          child: SvgPicture.asset("assets/svgs/$assetName", width: width),
+        );
+      },
+    );
   }
 
-  Widget _buildImage2(String assetName, [double width = 200]) {
+  Widget _buildImage(String assetName, [double width = 200]) {
     // return Image.asset('assets/images/$assetName', width: width);
     return SvgPicture.asset("assets/svgs/$assetName", width: width);
   }
