@@ -25,13 +25,13 @@ class _HomePageState extends State<HomePage> {
                 TweenAnimationBuilder(
                   tween: Tween<double>(
                       begin: screenHeight(context) / 4,
-                      end: screenHeight(context) / 2),
+                      end: screenHeight(context)),
                   duration: Duration(milliseconds: 10),
                   builder: (BuildContext context, double val, child) {
                     return CustomPaint(
                       size: Size(
                         val,
-                        (screenWidth(context) * 0.9).toDouble(),
+                        (screenWidth(context) * 1).toDouble(),
                       ),
                       painter: RPSCustomPainter(),
                     );

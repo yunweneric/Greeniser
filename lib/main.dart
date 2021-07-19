@@ -14,22 +14,22 @@ import 'package:greeniser/utilities/constants.dart';
 //     );
 String? token;
 String? initApp;
-// void main() async {
-//   token = null;
-//   initApp = "";
-//   runApp(MyApp());
-// }
-
-void main() {
+void main() async {
   token = null;
   initApp = "";
-  runApp(
-    DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => MyApp(), // Wrap your app
-    ),
-  );
+  runApp(MyApp());
 }
+
+// void main() {
+//   token = null;
+//   initApp = "";
+//   runApp(
+//     DevicePreview(
+//       enabled: !kReleaseMode,
+//       builder: (context) => MyApp(), // Wrap your app
+//     ),
+//   );
+// }
 
 class MyApp extends StatelessWidget {
   @override
