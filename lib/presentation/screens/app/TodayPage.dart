@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:greeniser/routes/AppRoutes.dart';
-import 'package:greeniser/utilities/constants.dart';
+import '../../routes/AppRoutes.dart';
+import '../../utilities/constants.dart';
 
 class TodayPage extends StatefulWidget {
   const TodayPage({Key? key}) : super(key: key);

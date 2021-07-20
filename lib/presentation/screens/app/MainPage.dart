@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:greeniser/routes/AppRoutes.dart';
-import 'package:greeniser/screens/app/Addrink.dart';
-import 'package:greeniser/screens/app/EventsPage.dart';
-import 'package:greeniser/screens/app/HomePage.dart';
-import 'package:greeniser/screens/app/ProfilePage.dart';
-import 'package:greeniser/screens/auth/login.dart';
-import 'package:greeniser/utilities/constants.dart';
+import '../../routes/AppRoutes.dart';
+import 'Addrink.dart';
+import 'EventsPage.dart';
+import 'HomePage.dart';
+import 'ProfilePage.dart';
+import '../auth/login.dart';
+import '../../utilities/constants.dart';
 
 class MainPage extends StatefulWidget {
   static String route = "/dashBoard/MainPage";

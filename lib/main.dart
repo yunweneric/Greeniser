@@ -2,9 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:device_preview/device_preview.dart';
-import 'package:greeniser/routes/AppRoutes.dart';
-import 'package:greeniser/routes/onGeneratedRoute.dart';
-import 'package:greeniser/utilities/constants.dart';
+
+import 'presentation/routes/AppRoutes.dart';
+import 'presentation/routes/onGeneratedRoute.dart';
 
 // void main() => runApp(
 //       DevicePreview(
@@ -32,6 +32,7 @@ void main() async {
 // }
 
 class MyApp extends StatelessWidget {
+  final Routegenerator router = Routegenerator();
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
@@ -53,8 +54,7 @@ class MyApp extends StatelessWidget {
           : token == null
               ? AppRoutes.loginScreen
               : AppRoutes.homeScreen,
-      onGenerateRoute: (settings) =>
-          Routegenerator.generatedRoutes(settings, context),
+      onGenerateRoute: router.generatedRoutes,
     );
   }
 }

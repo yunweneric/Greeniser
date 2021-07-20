@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:greeniser/routes/AppRoutes.dart';
-import 'package:greeniser/utilities/constants.dart';
+import '../../routes/AppRoutes.dart';
+import '../../utilities/constants.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);

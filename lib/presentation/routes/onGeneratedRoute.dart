@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:greeniser/screens/OnBoarding/OnBoadingPage.dart';
-import 'package:greeniser/screens/app/HomePage.dart';
-import 'package:greeniser/screens/app/MainPage.dart';
-import 'package:greeniser/screens/app/TodayPage.dart';
-import 'package:greeniser/screens/auth/login.dart';
-import 'package:greeniser/screens/auth/signUp.dart';
 
+import '../screens/OnBoarding/OnBoadingPage.dart';
+import '../screens/app/HomePage.dart';
+import '../screens/app/MainPage.dart';
+import '../screens/app/TodayPage.dart';
+import '../screens/auth/login.dart';
+import '../screens/auth/signUp.dart';
 import 'AppRoutes.dart';
 
 class Routegenerator {
-  static Route<dynamic> generatedRoutes(RouteSettings settings, context) {
+  Route<dynamic> generatedRoutes(RouteSettings settings) {
     final args = settings.arguments;
     switch (settings.name) {
       case (AppRoutes.loginScreen):
