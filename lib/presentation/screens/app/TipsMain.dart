@@ -6,16 +6,16 @@ import 'HomePage.dart';
 import 'ProfilePage.dart';
 import '../../utilities/constants.dart';
 
-class MainPage extends StatefulWidget {
-  static String route = "/dashBoard/MainPage";
+class Tipsmain extends StatefulWidget {
+  static String route = "/dashBoard/Tipsmain";
 
-  const MainPage({Key? key}) : super(key: key);
+  const Tipsmain({Key? key}) : super(key: key);
 
   @override
-  _MainPageState createState() => _MainPageState();
+  _TipsmainState createState() => _TipsmainState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _TipsmainState extends State<Tipsmain> {
   int _currentIndex = 0;
   late PageController _pageController;
 
@@ -37,7 +37,7 @@ class _MainPageState extends State<MainPage> {
     super.dispose();
   }
 
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
   static const TextStyle optionStyle = TextStyle(
     fontSize: 30,
     fontWeight: FontWeight.bold,

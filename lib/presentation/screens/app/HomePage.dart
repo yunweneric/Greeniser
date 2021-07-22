@@ -1,9 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../utilities/CustomClipper.dart';
+import 'package:greeniser/presentation/routes/AppRoutes.dart';
+import 'package:greeniser/presentation/widgets/eventflyer.dart';
+import 'package:greeniser/presentation/widgets/homepageclipper.dart';
 import '../../utilities/constants.dart';
-import 'dart:ui' as ui;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,8 +12,9 @@ class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
-  
+
 class _HomePageState extends State<HomePage> {
+  String profileUrl = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,93 +122,100 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: Column(
-                children: [
-                  minorSpacer(context),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Upcoming Events",
-                        style: GoogleFonts.lato(
-                          textStyle: TextStyle(
-                            fontSize: 22.0,
-                            fontWeight: FontWeight.w700,
-                            color: kprimaryColor,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 5,
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.teal[100],
-                        ),
-                        child: Text(
-                          "See all",
-                          style: GoogleFonts.lato(
-                            textStyle: TextStyle(
-                              fontSize: 13.0,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            )
+            headline(
+              context: context,
+              title: "Upcoming Events",
+              onclick: () {
+                Navigator.pushNamed(context, AppRoutes.events);
+              },
+            ),
+            majorSpacer(context),
+            EventFlyer(
+              imgUrl: "assets/images/climate2.jpg",
+              flyerImgUrl: "assets/images/climate4.jpg",
+            ),
+            minorSpacer(context),
+            EventFlyer(
+              imgUrl: "assets/images/climate1.jpg",
+              flyerImgUrl: "assets/images/climate3.jpg",
+            ),
+            majorSpacer(context),
+            headline(
+              context: context,
+              title: "Pro Tips",
+              onclick: () {
+                Navigator.pushNamed(context, AppRoutes.tips);
+              },
+            ),
+            majorSpacer(context),
+            EventFlyer(
+              imgUrl: "assets/images/climate1.jpg",
+              flyerImgUrl: "assets/images/climate2.jpg",
+            ),
+            minorSpacer(context),
+            EventFlyer(
+              imgUrl: "assets/images/climate4.jpg",
+              flyerImgUrl: "assets/images/climate5.jpg",
+            ),
+            majorSpacer(context),
+            majorSpacer(context),
           ],
         ),
       ),
     );
   }
-}
 
-class RPSCustomPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint paint_0 = new Paint()
-      ..color = Color.fromARGB(255, 33, 150, 243)
-      ..style = PaintingStyle.fill
-      ..strokeWidth = 1;
-    paint_0.shader = ui.Gradient.linear(
-        Offset(0, size.height),
-        Offset(size.width, size.height),
-        [Color(0xff025962), Color(0XFF1A936A)],
-        [0.00, 1.00]);
-
-    Path path_0 = Path();
-    path_0.moveTo(0, 0);
-    path_0.lineTo(size.width, 0);
-    path_0.lineTo(size.width, size.height * 0.8619102);
-    path_0.quadraticBezierTo(size.width * 0.9876300, size.height * 0.9894246,
-        size.width * 0.9035000, size.height * 0.9743959);
-    path_0.cubicTo(
-        size.width * 0.7036875,
-        size.height * 0.9462745,
-        size.width * 0.2665600,
-        size.height * 0.8828423,
-        size.width * 0.0742500,
-        size.height * 0.8619102);
-    path_0.quadraticBezierTo(size.width * 0.0131900, size.height * 0.8507595, 0,
-        size.height * 0.7612198);
-    path_0.lineTo(0, 0);
-    path_0.close();
-
-    canvas.drawPath(path_0, paint_0);
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
+  Padding headline({
+    required BuildContext context,
+    required String title,
+    required VoidCallback onclick,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: Column(
+        children: [
+          minorSpacer(context),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                title,
+                style: GoogleFonts.lato(
+                  textStyle: TextStyle(
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.w700,
+                    color: kprimaryColor,
+                  ),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 5,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.teal[100],
+                ),
+                child: GestureDetector(
+                  onTap: onclick,
+                  child: Text(
+                    "See all",
+                    style: GoogleFonts.lato(
+                      textStyle: TextStyle(
+                        fontSize: 13.0,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
   }
 }
