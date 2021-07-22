@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
                   tween: Tween<double>(
                       begin: screenHeight(context) / 4,
                       end: screenHeight(context)),
-                  duration: Duration(milliseconds: 200),
+                  duration: Duration(milliseconds: 1000),
                   builder: (BuildContext context, double val, child) {
                     return CustomPaint(
                       size: Size(

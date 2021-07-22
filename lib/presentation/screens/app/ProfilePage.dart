@@ -29,12 +29,13 @@ class _ProfilePageState extends State<ProfilePage> {
                             decoration: BoxDecoration(
                               boxShadow: [
                                 BoxShadow(
-                                    blurRadius: 10.0,
-                                    color: kbluecover2,
-                                    offset: Offset(
-                                      0.0,
-                                      5.0,
-                                    )),
+                                  blurRadius: 10.0,
+                                  color: kbluecover2,
+                                  offset: Offset(
+                                    0.0,
+                                    5.0,
+                                  ),
+                                ),
                                 BoxShadow(color: Colors.black),
                               ],
                               image: DecorationImage(
@@ -63,10 +64,16 @@ class _ProfilePageState extends State<ProfilePage> {
                           Positioned(
                             top: screenHeight(context) / 15,
                             right: screenWidth(context) / 15,
-                            child: CircleAvatar(
-                              child: Icon(
-                                Icons.logout,
-                                color: Colors.white,
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.pushNamedAndRemoveUntil(context,
+                                    AppRoutes.loginScreen, (route) => false);
+                              },
+                              child: CircleAvatar(
+                                child: Icon(
+                                  Icons.logout,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           ),
@@ -219,6 +226,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                       ),
                                       child: Text(
                                         lorem(words: 30, paragraphs: 1),
+                                        style: GoogleFonts.lato(
+                                          height: 1.6,
+                                          wordSpacing: 2.0,
+                                        ),
                                         textAlign: TextAlign.center,
                                       ),
                                     )

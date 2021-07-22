@@ -56,7 +56,7 @@ class _TipsState extends State<Tips> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
                               horizontal: 28.0,
-                              vertical: 15.0,
+                              vertical: 20.0,
                             ) +
                             EdgeInsets.only(top: 10.0),
                         child: Column(
@@ -65,9 +65,10 @@ class _TipsState extends State<Tips> {
                             Text(
                               "Categories",
                               style: TextStyle(
-                                  color: kprimaryColor,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold),
+                                color: kprimaryColor,
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ],
                         ),
@@ -128,22 +129,29 @@ class _TipsState extends State<Tips> {
                 children: [
                   Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      Wrap(
+                        runAlignment: WrapAlignment.start,
+                        spacing: 0.0,
                         children: [
-                          category(title: "Energy", onclick: () {}),
-                          category(title: "Waste", onclick: () {}),
-                          category(title: "Climate change", onclick: () {}),
+                          category(
+                              title: "Climate change",
+                              timeout: 800,
+                              onclick: () {}),
+                          category(title: "Air", timeout: 1200, onclick: () {}),
+                          category(
+                              title: "Global warming",
+                              timeout: 1600,
+                              onclick: () {}),
+                          category(
+                              title: "Waste", timeout: 2000, onclick: () {}),
+                          category(
+                              title: "water", timeout: 2900, onclick: () {}),
+                          category(
+                              title: "Pollution",
+                              timeout: 1600,
+                              onclick: () {}),
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          category(title: "Air", onclick: () {}),
-                          category(title: "Waste", onclick: () {}),
-                          category(title: "water", onclick: () {}),
-                        ],
-                      )
                     ],
                   ),
                   majorSpacer(context),
@@ -189,30 +197,41 @@ class _TipsState extends State<Tips> {
     );
   }
 
-  GestureDetector category({title, onclick}) {
-    return GestureDetector(
-      onTap: onclick,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
-        child: Container(
-          decoration: BoxDecoration(
-            color: kprimaryColor,
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 8.0,
-              horizontal: 10.0,
-            ),
-            child: Text(
-              title,
-              style: GoogleFonts.lato(
-                color: Colors.white,
+  category({title, onclick, timeout}) {
+    return TweenAnimationBuilder(
+      curve: Curves.easeInOutQuad,
+      duration: Duration(milliseconds: timeout),
+      tween: Tween<double>(begin: 0, end: 1),
+      builder: (BuildContext context, double val, child) {
+        return Opacity(
+          opacity: val,
+          child: GestureDetector(
+            onTap: onclick,
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: kprimaryColor,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 8.0,
+                    horizontal: 10.0,
+                  ),
+                  child: Text(
+                    title,
+                    style: GoogleFonts.lato(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 
