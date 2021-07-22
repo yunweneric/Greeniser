@@ -90,7 +90,7 @@ class _EventPageState extends State<EventPage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Greeniser Today!",
+                                  "Greeniser Events!",
                                   style: GoogleFonts.lato(
                                     fontSize: 30,
                                     color: Colors.white,
