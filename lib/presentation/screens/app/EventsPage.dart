@@ -98,14 +98,17 @@ class _EventPageState extends State<EventPage> {
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
-                                Text(
-                                  "Let's save the planet, lets's save earth",
-                                  style: GoogleFonts.lato(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
+                                Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Text(
+                                    "Countless events to help you grow.\nSignup for events today",
+                                    style: GoogleFonts.lato(
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                    textAlign: TextAlign.left,
                                   ),
-                                  textAlign: TextAlign.center,
                                 ),
                               ],
                             ),

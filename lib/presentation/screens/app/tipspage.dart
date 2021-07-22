@@ -98,14 +98,17 @@ class _TipsState extends State<Tips> {
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
-                                Text(
-                                  "Let's save the planet, lets's save earth",
-                                  style: GoogleFonts.lato(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
+                                Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Text(
+                                    "Get productive today from a vast categories we have",
+                                    style: GoogleFonts.lato(
+                                      fontSize: 14,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                    textAlign: TextAlign.left,
                                   ),
-                                  textAlign: TextAlign.center,
                                 ),
                               ],
                             ),
@@ -157,24 +160,24 @@ class _TipsState extends State<Tips> {
                   eventCard(
                     title: "Reinovating advocacy",
                     date: 'Jan 12 2021',
-                    location: 'Yaounde',
+                    location: 'ISEC Yaounde',
                   ),
                   minorSpacer(context),
                   eventCard(
                     title: "Reinovating advocacy",
                     date: 'Jan 12 2021',
-                    location: 'Yaounde',
+                    location: 'The Greens',
                   ),
                   eventCard(
                     title: "Reinovating advocacy",
                     date: 'Jan 12 2021',
-                    location: 'Yaounde',
+                    location: 'Majority',
                   ),
                   minorSpacer(context),
                   eventCard(
                     title: "Reinovating advocacy",
                     date: 'Jan 12 2021',
-                    location: 'Yaounde',
+                    location: 'Clean planet',
                   ),
                   minorSpacer(context),
                 ],
@@ -266,8 +269,8 @@ class _TipsState extends State<Tips> {
                 Row(
                   children: [
                     FaIcon(
-                      FontAwesomeIcons.mapMarked,
-                      size: 12,
+                      FontAwesomeIcons.solidUserCircle,
+                      size: 15,
                       color: kprimaryColor,
                     ),
                     SizedBox(
