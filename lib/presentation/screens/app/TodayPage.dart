@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lorem/flutter_lorem.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,91 +17,168 @@ class _TodayPageState extends State<TodayPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: ClipRRect(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(32),
+          topRight: Radius.circular(32),
+        ),
+        child: BottomAppBar(
+          elevation: 0,
+          child: Container(
+            padding: const EdgeInsets.all(20),
+            height: 65,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                IconButton(
+                    icon: Icon(
+                      Icons.favorite,
+                      color: Colors.grey,
+                    ),
+                    onPressed: () {}),
+                IconButton(
+                    icon: Icon(
+                      Icons.share_rounded,
+                      color: Colors.grey,
+                    ),
+                    onPressed: () {}),
+                IconButton(
+                    icon: Icon(
+                      Icons.nights_stay_outlined,
+                      color: Colors.grey,
+                    ),
+                    onPressed: () {}),
+                IconButton(
+                    icon: Icon(
+                      Icons.format_size_outlined,
+                      color: Colors.grey,
+                    ),
+                    onPressed: () {}),
+              ],
+            ),
+          ),
+        ),
+      ),
       backgroundColor: kscaffoldBgColor2,
-      body: Container(
-        height: screenHeight(context),
-        width: screenWidth(context),
-        child: Stack(
-          alignment: AlignmentDirectional.topCenter,
+      body: SingleChildScrollView(
+        child: Column(
           children: <Widget>[
-            Container(
-              height: screenHeight(context) / 3,
-              decoration: BoxDecoration(
-                color: kprimaryColor,
-                image: DecorationImage(
-                  image: AssetImage('assets/images/climate2.jpg'),
-                  fit: BoxFit.cover,
+            Stack(
+              alignment: Alignment.centerLeft,
+              children: [
+                Container(
+                  height: screenHeight(context) / 2.5,
+                  decoration: BoxDecoration(
+                    color: kprimaryColor,
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/climate2.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            Positioned(
-              child: Container(
-                height: screenHeight(context) / 3,
-                decoration: BoxDecoration(
-                  color: kbluecover,
+                Container(
+                  height: screenHeight(context) / 2.5,
+                  decoration: BoxDecoration(
+                    color: kblackcover,
+                  ),
                 ),
-              ),
-            ),
-            Positioned(
-              top: screenHeight(context) / 3.8,
-              right: 0,
-              left: 0,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: kscaffoldBgColor2,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(50),
-                      topRight: Radius.circular(50.0)),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(28.0),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 30.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Today's Tip",
-                        style: TextStyle(
-                            color: kprimaryColor,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold),
+                        "Greeniser Today!",
+                        style: GoogleFonts.lato(
+                          fontSize: 30,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      majorSpacer(context),
+                      Text(
+                        "Let's save the planet, lets's save earth",
+                        style: GoogleFonts.lato(
+                          fontSize: 15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
                     ],
                   ),
                 ),
-              ),
+                // Positioned(
+                //   bottom: 20,
+                //   right: 20,
+                //   child: CircleAvatar(
+                //     backgroundColor: Colors.teal[100],
+                //     child: Icon(
+                //       Icons.download,
+                //       color: Colors.blueGrey,
+                //     ),
+                //   ),
+                // )
+              ],
             ),
-            Positioned(
-              top: screenHeight(context) / 8,
-              left: 0,
-              right: 0,
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 30.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                minorSpacer(context),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 28.0,
+                    vertical: 20.0,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Today's Tip",
+                        style: TextStyle(
+                          color: kprimaryColor,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      CircleAvatar(
+                        backgroundColor: Colors.teal[100],
+                        child: Icon(
+                          Icons.download,
+                          color: Colors.blueGrey,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                // majorSpacer(context),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30.0),
+              child: RichText(
+                text: TextSpan(
                   children: [
-                    Text(
-                      "Greeniser Today!",
+                    TextSpan(
+                        text: 'A',
+                        style: GoogleFonts.lato(
+                          color: Colors.black,
+                          fontSize: 32,
+                        )),
+                    TextSpan(
+                      text: lorem(paragraphs: 2),
                       style: GoogleFonts.lato(
-                        fontSize: 30,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    Text(
-                      "Let's save the planet, lets's save earth",
-                      style: GoogleFonts.lato(
+                        color: Colors.black,
                         fontSize: 15,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
+                        height: 1.7,
+                        wordSpacing: 1.5,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                   ],
                 ),
               ),
             ),
+            majorSpacer(context)
           ],
         ),
       ),
