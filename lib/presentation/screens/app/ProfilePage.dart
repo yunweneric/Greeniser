@@ -47,19 +47,17 @@ class _ProfilePageState extends State<ProfilePage> {
                               ),
                             ),
                             width: screenWidth(context),
-                            child: SafeArea(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  CircleAvatar(
-                                    radius: 80.0,
-                                    backgroundImage: AssetImage(
-                                      'assets/images/user.jpg',
-                                    ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                CircleAvatar(
+                                  radius: 80.0,
+                                  backgroundImage: AssetImage(
+                                    'assets/images/user.jpg',
                                   ),
-                                  majorSpacer(context),
-                                ],
-                              ),
+                                ),
+                                majorSpacer(context),
+                              ],
                             ),
                           ),
                           Positioned(
