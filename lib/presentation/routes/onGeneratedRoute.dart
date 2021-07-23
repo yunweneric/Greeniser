@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:greeniser/presentation/screens/app/EventsMain.dart';
 import 'package:greeniser/presentation/screens/app/TipsMain.dart';
+import 'package:greeniser/presentation/screens/onboarding/OnBoadingPage.dart';
 
-import '../screens/OnBoarding/OnBoadingPage.dart';
 import '../screens/app/HomePage.dart';
 import '../screens/app/MainPage.dart';
 import '../screens/app/TodayPage.dart';
