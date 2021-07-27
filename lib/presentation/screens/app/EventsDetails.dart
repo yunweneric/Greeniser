@@ -40,7 +40,7 @@ class _EventDetailsState extends State<EventDetails> {
                   decoration: BoxDecoration(
                     color: kprimaryColor,
                     image: DecorationImage(
-                      image: AssetImage('assets/images/climate4.jpg'),
+                      image: AssetImage('assets/images/climate3.jpg'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -101,14 +101,8 @@ class _EventDetailsState extends State<EventDetails> {
                 additional: "More Info",
               ),
             ),
-            // headline(
-            //   context: context,
-            //   title: "Related Events",
-            //   secondtitle: "See all",
-            //   onclick: () {
-            //     Navigator.pushNamed(context, AppRoutes.tips);
-            //   },
-            // ),
+            majorSpacer(context),
+            majorSpacer(context),
           ],
         ),
       ),
