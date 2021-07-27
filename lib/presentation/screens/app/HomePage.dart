@@ -57,16 +57,15 @@ class _HomePageState extends State<HomePage> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                CircleAvatar(
-                                  radius: 20,
-                                  backgroundColor: kprimaryColor,
-                                  backgroundImage: AssetImage(
-                                    "assets/images/climate3.jpg",
+                                InkWell(
+                                  onTap: () {},
+                                  child: CircleAvatar(
+                                    radius: 20,
+                                    backgroundColor: kprimaryColor,
+                                    child: Icon(
+                                      Icons.notifications_active,
+                                    ),
                                   ),
-
-                                  // CachedNetworkImage(
-                                  //   imageUrl: "assets/images/drink3.jpg",
-                                  // ),
                                 )
                               ],
                             ),
