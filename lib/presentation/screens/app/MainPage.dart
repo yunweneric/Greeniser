@@ -1,3 +1,4 @@
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import '../../routes/AppRoutes.dart';
 import 'tipspage.dart';
@@ -89,24 +90,32 @@ class _MainPageState extends State<MainPage> {
         onTap: _onItemTapped,
       ),
       floatingActionButton: showFab
-          ? FloatingActionButton(
-              backgroundColor: kprimaryColor,
-              child: Padding(
-                padding: EdgeInsets.all(5.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.bubble_chart,
-                      size: 28.0,
-                    )
-                  ],
+          ? AvatarGlow(
+              glowColor: Colors.teal,
+              endRadius: 50.0,
+              duration: Duration(milliseconds: 2000),
+              repeat: true,
+              showTwoGlows: true,
+              repeatPauseDuration: Duration(milliseconds: 100),
+              child: FloatingActionButton(
+                backgroundColor: kprimaryColor,
+                child: Padding(
+                  padding: EdgeInsets.all(5.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.bubble_chart,
+                        size: 28.0,
+                      )
+                    ],
+                  ),
                 ),
+                onPressed: () async {
+                  Navigator.pushNamed(context, AppRoutes.today);
+                },
               ),
-              onPressed: () async {
-                Navigator.pushNamed(context, AppRoutes.today);
-              },
             )
           : null,
       floatingActionButtonLocation:

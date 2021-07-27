@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:greeniser/presentation/routes/AppRoutes.dart';
 import 'package:greeniser/presentation/utilities/constants.dart';
 
 class Tips extends StatefulWidget {
@@ -169,23 +170,47 @@ class _TipsState extends State<Tips> {
                     title: "Reinovating advocacy",
                     date: 'Jan 12 2021',
                     location: 'ISEC Yaounde',
+                    onclick: () {
+                      Navigator.pushNamed(
+                        context,
+                        AppRoutes.today,
+                      );
+                    },
                   ),
                   minorSpacer(context),
                   eventCard(
                     title: "Reinovating advocacy",
                     date: 'Jan 12 2021',
                     location: 'The Greens',
+                    onclick: () {
+                      Navigator.pushNamed(
+                        context,
+                        AppRoutes.today,
+                      );
+                    },
                   ),
                   eventCard(
                     title: "Reinovating advocacy",
                     date: 'Jan 12 2021',
                     location: 'Majority',
+                    onclick: () {
+                      Navigator.pushNamed(
+                        context,
+                        AppRoutes.today,
+                      );
+                    },
                   ),
                   minorSpacer(context),
                   eventCard(
                     title: "Reinovating advocacy",
                     date: 'Jan 12 2021',
                     location: 'Clean planet',
+                    onclick: () {
+                      Navigator.pushNamed(
+                        context,
+                        AppRoutes.today,
+                      );
+                    },
                   ),
                   minorSpacer(context),
                 ],
@@ -235,7 +260,7 @@ class _TipsState extends State<Tips> {
     );
   }
 
-  Card eventCard({title, date, location}) {
+  Card eventCard({title, date, location, onclick}) {
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
@@ -307,10 +332,13 @@ class _TipsState extends State<Tips> {
                 )
               ],
             ),
-            CircleAvatar(
-              child: Icon(
-                Icons.arrow_forward_rounded,
-                color: Colors.white,
+            InkWell(
+              onTap: onclick,
+              child: CircleAvatar(
+                child: Icon(
+                  Icons.arrow_forward_rounded,
+                  color: Colors.white,
+                ),
               ),
             )
           ],
