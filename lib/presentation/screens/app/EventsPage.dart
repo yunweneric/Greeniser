@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:greeniser/presentation/routes/AppRoutes.dart';
 
 import '../../utilities/constants.dart';
 
@@ -212,23 +213,47 @@ class _EventPageState extends State<EventPage> {
                     title: "Reinovating advocacy",
                     date: 'Jan 12 2021',
                     location: 'Yaounde',
+                    ontap: () {
+                      Navigator.pushNamed(
+                        context,
+                        AppRoutes.eventdetails,
+                      );
+                    },
                   ),
                   minorSpacer(context),
                   eventCard(
                     title: "Reinovating advocacy",
                     date: 'Jan 12 2021',
                     location: 'Yaounde',
+                    ontap: () {
+                      Navigator.pushNamed(
+                        context,
+                        AppRoutes.eventdetails,
+                      );
+                    },
                   ),
                   eventCard(
                     title: "Reinovating advocacy",
                     date: 'Jan 12 2021',
                     location: 'Yaounde',
+                    ontap: () {
+                      Navigator.pushNamed(
+                        context,
+                        AppRoutes.eventdetails,
+                      );
+                    },
                   ),
                   minorSpacer(context),
                   eventCard(
                     title: "Reinovating advocacy",
                     date: 'Jan 12 2021',
                     location: 'Yaounde',
+                    ontap: () {
+                      Navigator.pushNamed(
+                        context,
+                        AppRoutes.eventdetails,
+                      );
+                    },
                   ),
                   minorSpacer(context),
                 ],
@@ -240,7 +265,7 @@ class _EventPageState extends State<EventPage> {
     );
   }
 
-  Card eventCard({title, date, location}) {
+  Card eventCard({title, date, location, ontap}) {
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
@@ -312,10 +337,13 @@ class _EventPageState extends State<EventPage> {
                 )
               ],
             ),
-            CircleAvatar(
-              child: Icon(
-                Icons.arrow_forward_rounded,
-                color: Colors.white,
+            InkWell(
+              onTap: ontap,
+              child: CircleAvatar(
+                child: Icon(
+                  Icons.arrow_forward_rounded,
+                  color: Colors.white,
+                ),
               ),
             )
           ],

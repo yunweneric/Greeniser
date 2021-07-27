@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:greeniser/presentation/routes/AppRoutes.dart';
 import 'package:greeniser/presentation/widgets/eventflyer.dart';
 import 'package:greeniser/presentation/widgets/homepageclipper.dart';
+import 'package:greeniser/presentation/widgets/subtitle.dart';
 import '../../utilities/constants.dart';
 
 class HomePage extends StatefulWidget {
@@ -125,6 +126,7 @@ class _HomePageState extends State<HomePage> {
             headline(
               context: context,
               title: "Upcoming Events",
+              secondtitle: "see all",
               onclick: () {
                 Navigator.pushNamed(context, AppRoutes.events);
               },
@@ -143,6 +145,7 @@ class _HomePageState extends State<HomePage> {
             headline(
               context: context,
               title: "Pro Tips",
+              secondtitle: "see all",
               onclick: () {
                 Navigator.pushNamed(context, AppRoutes.tips);
               },
@@ -161,60 +164,6 @@ class _HomePageState extends State<HomePage> {
             majorSpacer(context),
           ],
         ),
-      ),
-    );
-  }
-
-  Padding headline({
-    required BuildContext context,
-    required String title,
-    required VoidCallback onclick,
-  }) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      child: Column(
-        children: [
-          minorSpacer(context),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                title,
-                style: GoogleFonts.lato(
-                  textStyle: TextStyle(
-                    fontSize: 22.0,
-                    fontWeight: FontWeight.w700,
-                    color: kprimaryColor,
-                  ),
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 5,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.teal[100],
-                ),
-                child: GestureDetector(
-                  onTap: onclick,
-                  child: Text(
-                    "See all",
-                    style: GoogleFonts.lato(
-                      textStyle: TextStyle(
-                        fontSize: 13.0,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          )
-        ],
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:greeniser/presentation/screens/app/EventsDetails.dart';
 import 'package:greeniser/presentation/screens/app/EventsMain.dart';
 import 'package:greeniser/presentation/screens/app/TipsMain.dart';
 import 'package:greeniser/presentation/screens/onboarding/OnBoadingPage.dart';
@@ -25,6 +26,9 @@ class Routegenerator {
 
       case (AppRoutes.tips):
         return MaterialPageRoute(builder: (context) => Tipsmain());
+
+      case (AppRoutes.eventdetails):
+        return MaterialPageRoute(builder: (context) => EventDetails());
 
       case (AppRoutes.today):
         return MaterialPageRoute(builder: (context) => TodayPage());

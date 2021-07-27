@@ -158,85 +158,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                       child: Stack(
                         children: [
-                          Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.0),
-                            ),
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 15.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Profile Details',
-                                    style: GoogleFonts.lato(
-                                      color: kprimaryColor,
-                                      fontSize: 22.0,
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
-                                  majorSpacer(context),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text('First name'),
-                                          minorSpacer(context),
-                                          Text('Email'),
-                                          minorSpacer(context),
-                                          Text('Telephone'),
-                                          minorSpacer(context),
-                                          Text('Location'),
-                                        ],
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text('Yunwen Eric'),
-                                          minorSpacer(context),
-                                          Text('yunweneric@gmail.com'),
-                                          minorSpacer(context),
-                                          Text('+237670921935'),
-                                          minorSpacer(context),
-                                          Text('Douala'),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  majorSpacer(context),
-                                  Text(
-                                    'About me',
-                                    style: GoogleFonts.lato(
-                                      color: kprimaryColor,
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
-                                  minorSpacer(context),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 30.0,
-                                      vertical: 10.0,
-                                    ),
-                                    child: Text(
-                                      lorem(words: 30, paragraphs: 1),
-                                      style: GoogleFonts.lato(
-                                        height: 1.6,
-                                        wordSpacing: 2.0,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
+                          detailsCard(context),
                           Positioned(
                             top: 0,
                             right: 0,
@@ -305,6 +227,84 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
             ),
+    );
+  }
+
+  Card detailsCard(BuildContext context) {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 15.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              'Profile Details',
+              style: GoogleFonts.lato(
+                color: kprimaryColor,
+                fontSize: 22.0,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            majorSpacer(context),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('First name'),
+                    minorSpacer(context),
+                    Text('Email'),
+                    minorSpacer(context),
+                    Text('Telephone'),
+                    minorSpacer(context),
+                    Text('Location'),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Yunwen Eric'),
+                    minorSpacer(context),
+                    Text('yunweneric@gmail.com'),
+                    minorSpacer(context),
+                    Text('+237670921935'),
+                    minorSpacer(context),
+                    Text('Douala'),
+                  ],
+                ),
+              ],
+            ),
+            majorSpacer(context),
+            Text(
+              'About me',
+              style: GoogleFonts.lato(
+                color: kprimaryColor,
+                fontSize: 18.0,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            minorSpacer(context),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 30.0,
+                vertical: 10.0,
+              ),
+              child: Text(
+                lorem(words: 30, paragraphs: 1),
+                style: GoogleFonts.lato(
+                  height: 1.6,
+                  wordSpacing: 2.0,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

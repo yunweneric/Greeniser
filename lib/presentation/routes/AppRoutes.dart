@@ -9,4 +9,5 @@ class AppRoutes {
   static const String homeScreen = "/homeScreen";
   static const String today = "/today";
   static const String events = "/events";
+  static const String eventdetails = "/eventdetails";
 }
