@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:avatar_glow/avatar_glow.dart';
 
 import '../../routes/AppRoutes.dart';
 import '../../utilities/constants.dart';
@@ -229,7 +230,13 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               repeatForever: true,
               totalRepeatCount: 4,
               animatedTexts: [
-                WavyAnimatedText("Get started!"),
+                WavyAnimatedText(
+                  "Get started!",
+                  textStyle: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 35.0,
+                  ),
+                ),
               ],
             ),
           ),
@@ -237,19 +244,30 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           image: _buildImage('img2.jpg'),
           footer: Container(
             width: screenWidth(context) / 2,
-            child: ElevatedButton(
-              onPressed: () {
-                _onIntroEnd(context);
-              },
-              child: const Text(
-                'Start',
-                style: TextStyle(color: Colors.white),
-              ),
-              style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(vertical: 15.0),
-                primary: kprimaryColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0),
+            child: AvatarGlow(
+              glowColor: Colors.teal,
+              endRadius: 90.0,
+              duration: Duration(milliseconds: 2000),
+              repeat: true,
+              showTwoGlows: true,
+              repeatPauseDuration: Duration(milliseconds: 100),
+              // child: Image.asset('assets/images/climate1.jpg'),
+              child: ElevatedButton(
+                onPressed: () {
+                  _onIntroEnd(context);
+                },
+                child: const Text(
+                  'Start',
+                  style: TextStyle(color: Colors.white),
+                ),
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 15.0,
+                  ),
+                  primary: kprimaryColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
                 ),
               ),
             ),
