@@ -212,7 +212,8 @@ class _TipsState extends State<Tips> {
                       );
                     },
                   ),
-                  minorSpacer(context),
+                  majorSpacer(context),
+                  majorSpacer(context)
                 ],
               ),
             ),

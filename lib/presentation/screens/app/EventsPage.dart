@@ -255,7 +255,8 @@ class _EventPageState extends State<EventPage> {
                       );
                     },
                   ),
-                  minorSpacer(context),
+                  majorSpacer(context),
+                  majorSpacer(context)
                 ],
               ),
             ),
