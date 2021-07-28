@@ -43,18 +43,40 @@ class NotificationPage extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        CircleAvatar(
-                          radius: 30.0,
-                          backgroundImage:
-                              AssetImage('assets/images/climate1.jpg'),
+                        Stack(
+                          children: [
+                            CircleAvatar(
+                              radius: 30.0,
+                              backgroundImage:
+                                  AssetImage('assets/images/user.jpg'),
+                            ),
+                            Positioned(
+                              bottom: 2.0,
+                              right: 0,
+                              child: CircleAvatar(
+                                radius: 10.0,
+                                backgroundColor: Colors.green,
+                              ),
+                            ),
+                          ],
                         ),
                         SizedBox(
                           width: 15.0,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("ISEC Cameroon"),
+                            Text(
+                              "ISEC Cameroon",
+                              style: GoogleFonts.lato(
+                                fontSize: 15.0,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
                             Text(
                               lorem(
                                 words: 4,
@@ -71,6 +93,7 @@ class NotificationPage extends StatelessWidget {
                     Text('2days ago')
                   ],
                 ),
+                Divider(),
               ],
             ),
           )
