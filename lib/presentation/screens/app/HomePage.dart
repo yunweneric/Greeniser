@@ -58,7 +58,12 @@ class _HomePageState extends State<HomePage> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 InkWell(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                      context,
+                                      AppRoutes.notifications,
+                                    );
+                                  },
                                   child: CircleAvatar(
                                     radius: 20,
                                     backgroundColor: kprimaryColor,

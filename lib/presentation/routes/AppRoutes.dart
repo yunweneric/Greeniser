@@ -10,4 +10,6 @@ class AppRoutes {
   static const String today = "/today";
   static const String events = "/events";
   static const String eventdetails = "/eventdetails";
+  static const String notifications = "/notifications";
+  static const String notificationsdetails = "/notificationsdetails";
 }

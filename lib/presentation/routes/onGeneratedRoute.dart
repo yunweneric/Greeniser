@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:greeniser/presentation/screens/app/EventsDetails.dart';
 import 'package:greeniser/presentation/screens/app/EventsMain.dart';
+import 'package:greeniser/presentation/screens/app/NotificationDetails.dart';
+import 'package:greeniser/presentation/screens/app/NotificationPage.dart';
 import 'package:greeniser/presentation/screens/app/TipsMain.dart';
 import 'package:greeniser/presentation/screens/onboarding/OnBoadingPage.dart';
 
@@ -41,6 +43,12 @@ class Routegenerator {
 
       case (AppRoutes.homeScreen):
         return MaterialPageRoute(builder: (context) => HomePage());
+
+      case (AppRoutes.notifications):
+        return MaterialPageRoute(builder: (context) => NotificationPage());
+
+      case (AppRoutes.notificationsdetails):
+        return MaterialPageRoute(builder: (context) => NotificationDetails());
 
       default:
         return MaterialPageRoute(builder: (context) => LoginScreen());
